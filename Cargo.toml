@@ -1,10 +1,13 @@
 [workspace]
-members = ["crates/engine"]
+members = [
+    "crates/engine",
+    "crates/api"
+]
 
 
 [workspace.package]
 authors = ["moamen.hraden"]
-version = "0.1.0"
+edition = "2021"
 
 [workspace.dependencies]
 
