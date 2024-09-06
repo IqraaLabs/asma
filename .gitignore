@@ -1,1 +1,5 @@
-/target
+.idea
+**/target
+**/cargo-target
+.DS_Store
+.vscode
