@@ -1,13 +1,11 @@
 [workspace]
+resolver = "2"
 members = [
     "crates/engine",
-    "crates/api"
+    "crates/api",
+    "crates/cli",
 ]
 
-
-[workspace.package]
-authors = ["moamen.hraden"]
-edition = "2021"
-
 [workspace.dependencies]
+
 

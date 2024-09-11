@@ -5,3 +5,10 @@
 /// is launched, each Net instance gets deep-cloned by the engine, and the copy is then wrapped by the
 /// NetRunner, which executes it
 pub struct NetRunner {}
+
+impl NetRunner {
+    pub fn new() -> Self {
+        NetRunner {}
+    }
+    pub fn run(&self) {}
+}
