@@ -6,3 +6,7 @@ edition = "2021"
 
 
 [dependencies]
+serde = { version = "1.0.210", features = ["derive"] }
+quick-xml = { version = "0.36.1", features = ["serialize"] }
+rusqlite = { version = "0.32.1", features = ["bundled"] }
+log = "0.4.22"
