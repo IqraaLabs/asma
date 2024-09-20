@@ -1,4 +1,6 @@
 /// # Net Element
 pub trait NetElement {
-    fn get_id(&self) -> u64;
+
+    /// get id of a net element
+    fn id(&self) -> u32;
 }

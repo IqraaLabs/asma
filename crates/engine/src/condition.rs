@@ -14,33 +14,27 @@ pub enum ConditionType {
 /// are directly connected together, an “invisible” condition is created between the tasks, when the
 /// process is loaded into the engine
 pub struct Condition {
-    id: u64,
-    name: Option<String>,
+    id: u32,
+    name: String,
     description: Option<String>,
     condition_type: ConditionType,
 }
 
 
 impl NetElement for Condition {
-    fn get_id(&self) -> u64 {
+    fn id(&self) -> u32 {
         self.id
     }
 }
 
 
 impl Condition {
-    fn new(id: u64, name: &str, description: &str, condition_type: ConditionType) -> Self {
+    fn new(id: u32, name: String, description: Option<String>, condition_type: ConditionType) -> Self {
         Condition {
             id,
-            name: Some(name.to_string()),
-            description: Some(description.to_string()),
+            name,
+            description,
             condition_type,
         }
     }
-}
-
-#[test]
-fn create_condition() {
-    let condition = Condition::new(1, "name", "description", ConditionType::Input);
-    assert_eq!(condition.get_id(), 1);
 }

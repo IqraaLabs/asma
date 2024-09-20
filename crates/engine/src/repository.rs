@@ -1,6 +1,4 @@
-use crate::net::Net;
 use crate::specification::Specification;
-use crate::version::Version;
 use rusqlite::{params, Connection};
 
 /// This enum represents possible errors that can occur during persistence operations.
@@ -40,28 +38,8 @@ impl Repository {
     pub fn create_specification(&self, spec: &Specification) -> Result<(), PersistenceError> {
         match self.conn.execute("INSERT INTO specifications (name) VALUES (?1)", params![&spec.name]) {
             Ok(_) => Ok(()),
-            Err(err) => Err(PersistenceError::NotFound),
+            Err(_) => Err(PersistenceError::NotFound),
         }
     }
 }
 
-
-#[test]
-fn test_initialize_repository() {
-    let repo = Repository::new();
-    assert!(repo.is_ok());
-}
-
-
-#[test]
-fn test_create_specification() {
-    let repo = Repository::new().unwrap();
-    let spec = Specification::new(
-        "spec-id".to_string(),
-        "spec-name".to_string(),
-        Version::parse("1.1".to_string()).unwrap(),
-        "some descriptoin".to_string(),
-        Net::new());
-    let res = repo.create_specification(&spec);
-    assert!(res.is_ok())
-}

@@ -6,13 +6,13 @@ use crate::net_element::NetElement;
 /// the fact that composite tasks contain nets of their own the identifiers are capable of creating children. The
 /// children pass through the subordinate nets. This idea is fully described in the YAWL Book
 pub struct Identifier {
-    id: u64,
+    id: u32,
     name: String,
     description: String,
 }
 
 impl NetElement for Identifier {
-    fn get_id(&self) -> u64 {
+    fn id(&self) -> u32 {
         self.id
     }
 }

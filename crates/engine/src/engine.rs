@@ -7,12 +7,12 @@ use crate::net_runner::NetRunner;
 // process instance controlling operations to some NetRunner, however the engine stores
 // and aggregates each NetRunner instance and correlates it with the YIdentifier object running through it.
 struct Engine {
-    netRunners: Vec<NetRunner>,
+    net_runners: Vec<NetRunner>,
 }
 
 impl Engine {
     pub fn create_net_runner(&mut self) {
-        let netRunner = NetRunner::new();
-        self.netRunners.push(netRunner);
+        let net_runner = NetRunner::new();
+        self.net_runners.push(net_runner);
     }
 }
